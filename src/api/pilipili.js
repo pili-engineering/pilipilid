@@ -1,11 +1,25 @@
 import resource from 'resource-router-middleware';
-import pilipilis from '../models/pilipili';
 import Pili from 'pili';
+import level from 'level';
 
+const db = level('./mydb');
 const credentials = new Pili.Credentials("MqF35-H32j1PH8igh-am7aEkduP511g-5-F7j47Z", "BF9QHMKIUQp_Oh4Xk8SwyhmwJ0CO-9n-RJzDgZQr");
 const hub = new Pili.Hub(credentials, "NIU7PS");
 
-export default ({ config, db }) => resource({
+let pilipilis = [];
+
+db.get("pilipili", function (err, value) {
+  if (err) {
+    if (err.notFound) {
+
+    }
+  }else{
+    pilipilis = JSON.parse(value);
+  }
+
+});
+
+export default ({ config }) => resource({
 
 	/** Property name to store preloaded entity on `request`. */
 	id : 'pilipili',
@@ -36,6 +50,7 @@ export default ({ config, db }) => resource({
     hub.createStream(options, function(err, stream) {
       if (!err) {
         pilipilis.push(stream);
+        db.put('pilipili',JSON.stringify(pilipilis));
         res.json(stream);
       } else {
         console.log(err + 'error code: ' + err.errorCode + 'http code: ' + err.httpCode);
@@ -72,6 +87,7 @@ export default ({ config, db }) => resource({
           if (!err) {
             console.log(data);
             pilipilis.splice(pilipilis.indexOf(pilipili), 1);
+            db.put('pilipili',JSON.stringify(pilipilis));
             res.sendStatus(204);
           } else {
             console.log(err + 'error code: ' + err.errorCode + 'http code: ' + err.httpCode);
@@ -82,5 +98,5 @@ export default ({ config, db }) => resource({
       }
     });
 
-	}
+	},
 });
