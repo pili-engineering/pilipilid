@@ -1,5 +1,5 @@
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
+#G Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.Go
 *.a
 *.so
 
@@ -22,3 +22,18 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+
+logs
+*.log
+npm-debug.log*
+
+pids
+*.pid
+*.seed
+*.pid.lock
+
+node_modules
+jspm_packages
+
+.npm
