@@ -32,6 +32,7 @@
     "compression": "^1.5.2",
     "cors": "^2.7.1",
     "express": "^4.13.3",
+    "pili": "^1.5.4",
     "resource-router-middleware": "^0.5.1"
   },
   "devDependencies": {
