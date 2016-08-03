@@ -35,5 +35,6 @@ pids
 
 node_modules
 jspm_packages
+mydb
 
 .npm
