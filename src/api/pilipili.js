@@ -49,9 +49,14 @@ export default ({ config }) => resource({
 
     hub.createStream(options, function(err, stream) {
       if (!err) {
-        pilipilis.push(stream);
+        let streamEntry = {};
+        streamEntry.publish = stream.rtmpPublishUrl();
+        streamEntry.play = stream.rtmpLiveUrls();
+        streamEntry.id = stream.id;
+        streamEntry.title = stream.title;
+        pilipilis.push(streamEntry);
         db.put('pilipili',JSON.stringify(pilipilis));
-        res.json(stream);
+        res.json(streamEntry);
       } else {
         console.log(err + 'error code: ' + err.errorCode + 'http code: ' + err.httpCode);
         res.json({error:err})
