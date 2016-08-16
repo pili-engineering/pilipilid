@@ -2,9 +2,8 @@ Getting Started
 ---------------
 
 ```
-
-# Make it your own
-rm -rf .git && git init && npm init
+# Setup AK SK
+open src\api\pilipili.js , replace <AK> and <SK> to your Key.
 
 # Install dependencies
 npm install

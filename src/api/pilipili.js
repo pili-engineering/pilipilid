@@ -3,7 +3,7 @@ import Pili from 'pili';
 import level from 'level';
 
 const db = level('./mydb');
-const credentials = new Pili.Credentials("exempwg0U6rl1yL_2G4A_00weNY5kEdMeG7oYH04", "8dhh34fcyMD3tDobvwSrsWbhX-GC6GKvykOikmLm");
+const credentials = new Pili.Credentials("<AK>", "<SK>");
 const hub = new Pili.Hub(credentials, "wantplus-1");
 
 let pilipilis = [];
