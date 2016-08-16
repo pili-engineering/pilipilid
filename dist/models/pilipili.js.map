@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/models/pilipili.js"],"names":[],"mappings":";;;;;AAAA;;;AAGA,IAAM,UAAU,EAAhB;kBACe,O","file":"pilipili.js","sourcesContent":["/**\n * Created by buhe on 16/8/3.\n */\nconst streams = [];\nexport default streams;\n\n"]}
